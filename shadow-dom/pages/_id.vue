@@ -55,7 +55,9 @@ export default class PageIndex extends Vue {
 
     const src = document.createElement("script");
     src.textContent = scriptNode.content.textContent;
-    shadowRoot.appendChild(src); // Shadow DOMにscript追加してもCSSと違いglobalになる
+    shadowRoot.appendChild(src);
+    // Shadow DOMにscript追加してもCSSと違いglobalになるので、documentを差し替えて操作する。
+    // const _document = document.querySelector("#main").shadowRoot;
   }
 }
 </script>
